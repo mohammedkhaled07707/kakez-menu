@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kakez Menu</title>
+<meta name="description" content="منيو كاكيز: مافن وكاكيز صحي، حلو وحادق. توصيل لكل القاهرة. للطلب 01021920609">
+<meta property="og:title" content="منيو كاكيز Kakez Bakery">
+<meta property="og:description" content="مافن وكاكيز صحي، حلو وحادق. توصيل لكل القاهرة.">
+<meta name="theme-color" content="#8C1E4F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='240 60 240 290'%3E%3Cpath d='M260 244 L460 244 L437 342 L283 342 Z' fill='%233F7663'/%3E%3Cellipse cx='360' cy='230' rx='115' ry='28' fill='%23E9B989'/%3E%3Cellipse cx='360' cy='192' rx='86' ry='27' fill='%23F5CFAA'/%3E%3Cellipse cx='360' cy='155' rx='56' ry='24' fill='%23FBE3C7'/%3E%3Ccircle cx='360' cy='99' r='18' fill='%238C1E4F'/%3E%3C/svg%3E">
+<style>html{-webkit-text-size-adjust:100%;color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=Cairo:wght@500;700;800&family=Damion&display=swap">
+<style>
+/* A bakery counter card: logo on a cream ground, two tabs like paper labels, the menu sheets stacked below. */
+:root {
+  --bg: #FBF5EC;
+  --card: #FFFFFF;
+  --fg: #3A2730;
+  --muted: #7A5A4E;
+  --wine: #8C1E4F;
+  --pist: #3F7663;
+  --tab: #F1E3D3;
+  --line: #E7D6C3;
+  --display: 'Lalezar', 'Segoe UI', Tahoma, sans-serif;
+  --body: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+  --script: 'Damion', 'Brush Script MT', cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1E1418; --card: #2A1D22; --fg: #F6EADF; --muted: #CDB6A6; --wine: #E07AA6;
+    --pist: #7FC2A8; --tab: #33242A; --line: #47333A; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1E1418; --card: #2A1D22; --fg: #F6EADF; --muted: #CDB6A6; --wine: #E07AA6;
+  --pist: #7FC2A8; --tab: #33242A; --line: #47333A; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--body); }
+.wrap {
+  max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px;
+  padding-block: 22px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+header { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2px; }
+header svg { width: 64px; height: auto; }
+header h1 { margin: 6px 0 0; font: 400 2.6rem/1 var(--display); color: var(--pist); }
+header .en { font: 400 1.35rem/1.1 var(--script); color: var(--wine); }
+header p { margin: 8px 0 0; font: 700 1rem/1.5 var(--body); color: var(--muted); text-wrap: balance; }
+
+.tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--bg); padding-block: 8px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.tabs a { display: flex; flex-direction: column; align-items: center; padding: 10px 8px 8px; border-radius: 14px;
+  background: var(--tab); color: var(--fg); text-decoration: none; border: 2px solid transparent; }
+.tabs a b { font: 400 1.5rem/1.1 var(--display); }
+.tabs a span { font: 700 .72rem/1.4 var(--body); letter-spacing: .14em; color: var(--muted); }
+.tabs a[aria-current="page"] { background: var(--wine); color: #FFF8EE; }
+.tabs a[aria-current="page"] span { color: #FBE3C7; }
+.tabs a:focus-visible, .copy:focus-visible, .links a:focus-visible { outline: 3px solid var(--pist); outline-offset: 2px; }
+
+.sheets { display: flex; flex-direction: column; gap: 14px; }
+.sheets a { display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--card); }
+.sheets img { display: block; width: 100%; height: auto; max-width: 100%; aspect-ratio: 1241 / 1754; }
+.hint { margin: 0; text-align: center; font: 500 .85rem/1.5 var(--body); color: var(--muted); }
+
+.order { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: flex;
+  flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+.order h2 { margin: 0; font: 400 1.6rem/1.1 var(--display); color: var(--pist); }
+.order p { margin: 0; font: 600 .95rem/1.5 var(--body); color: var(--muted); }
+.num { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.num output { font: 800 1.5rem/1 var(--body); direction: ltr; font-variant-numeric: tabular-nums; user-select: all; color: var(--fg); }
+.copy { font: 700 .9rem/1 var(--body); padding: 8px 14px; border-radius: 99px; border: 2px solid var(--pist); background: transparent;
+  color: var(--pist); cursor: pointer; }
+.links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.links a { font: 700 .95rem/1 var(--body); padding: 11px 18px; border-radius: 99px; text-decoration: none; color: #FFF8EE; }
+.links .wa { background: #2F7D5B; }
+.links .ig { background: var(--wine); }
+footer { text-align: center; font: 500 .8rem/1.5 var(--body); color: var(--muted); }
+</style>
+
+</head>
+<body>
+<div class="wrap" dir="rtl">
+  <header>
+    <svg viewBox="240 60 240 290" aria-hidden="true">
+      <path d="M260 244 L460 244 L437 342 L283 342 Z" fill="#3F7663"/>
+      <g stroke="#FFF8EE" stroke-width="6" stroke-linecap="round"><path d="M311 258 L316 334"/><path d="M360 258 L360 334"/><path d="M409 258 L404 334"/></g>
+      <ellipse cx="360" cy="230" rx="115" ry="28" fill="#E9B989"/><ellipse cx="360" cy="192" rx="86" ry="27" fill="#F5CFAA"/>
+      <ellipse cx="360" cy="155" rx="56" ry="24" fill="#FBE3C7"/>
+      <path d="M338 142 C348 134 354 122 360 114 C366 122 372 134 382 142 Z" fill="#FBE3C7"/>
+      <path d="M362 86 C366 76 374 70 384 69" fill="none" stroke="#3F7663" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="360" cy="99" r="15" fill="#8C1E4F"/>
+    </svg>
+    <h1>كاكيز</h1>
+    <span class="en">Kakez Bakery</span>
+    <p>من فرن بيتنا لباب بيتك · صحي 100٪ · توصيل لكل القاهرة</p>
+  </header>
+
+  <nav class="tabs" aria-label="المنيو">
+    <a href="#sweet" id="tab-sweet"><b>الحلو</b><span>SWEET</span></a>
+    <a href="#savory" id="tab-savory"><b>الحادق</b><span>SAVORY</span></a>
+  </nav>
+
+  <section class="sheets" id="sweet" aria-label="منيو الحلو">
+    <a href="sweet-1.jpg" target="_blank" rel="noopener"><img src="sweet-1.jpg" alt="منيو الحلو صفحة 1: المافن" width="1241" height="1754"></a>
+    <a href="sweet-2.jpg" target="_blank" rel="noopener"><img src="sweet-2.jpg" alt="منيو الحلو صفحة 2: المافن" width="1241" height="1754" loading="lazy"></a>
+    <a href="sweet-3.jpg" target="_blank" rel="noopener"><img src="sweet-3.jpg" alt="منيو الحلو صفحة 3: الكاكيز" width="1241" height="1754" loading="lazy"></a>
+    <a href="sweet-4.jpg" target="_blank" rel="noopener"><img src="sweet-4.jpg" alt="منيو الحلو صفحة 4: الكاكيز" width="1241" height="1754" loading="lazy"></a>
+  </section>
+  <section class="sheets" id="savory" aria-label="منيو الحادق" hidden>
+    <a href="savory-1.jpg" target="_blank" rel="noopener"><img src="savory-1.jpg" alt="منيو الحادق صفحة 1: ميني كاكيز السبانخ والبنجر" width="1241" height="1754"></a>
+    <a href="savory-2.jpg" target="_blank" rel="noopener"><img src="savory-2.jpg" alt="منيو الحادق صفحة 2: ميني كاكيز باتية وبيتزا" width="1241" height="1754" loading="lazy"></a>
+  </section>
+  <p class="hint">اضغط على أي صفحة عشان تكبرها</p>
+
+  <section class="order">
+    <h2>اطلب دلوقتي</h2>
+    <p>اتصال أو واتساب على الرقم ده</p>
+    <div class="num"><output id="phone">01021920609</output><button class="copy" id="copy" type="button">انسخ الرقم</button></div>
+    <div class="links">
+      <a class="wa" href="https://wa.me/201021920609" target="_blank" rel="noopener">واتساب</a>
+      <a class="ig" dir="ltr" href="https://www.instagram.com/kakez.eg/" target="_blank" rel="noopener">@kakez.eg</a>
+    </div>
+  </section>
+  <footer>كل المخبوزات من دقيق الحبة الكاملة والشوفان، ومكونات طبيعية من صنع البيت</footer>
+</div>
+
+<script>
+(function () {
+  var views = ["sweet", "savory"];
+  function show() {
+    var h = (location.hash || "").replace("#", "");
+    var cur = views.indexOf(h) >= 0 ? h : "sweet";
+    views.forEach(function (v) {
+      document.getElementById(v).hidden = v !== cur;
+      var t = document.getElementById("tab-" + v);
+      if (v === cur) t.setAttribute("aria-current", "page"); else t.removeAttribute("aria-current");
+    });
+  }
+  window.addEventListener("hashchange", function () { show(); window.scrollTo(0, 0); });
+  show();
+  var btn = document.getElementById("copy");
+  btn.addEventListener("click", function () {
+    var done = function () { btn.textContent = "اتنسخ"; setTimeout(function () { btn.textContent = "انسخ الرقم"; }, 1600); };
+    var pick = function () {
+      var r = document.createRange(); r.selectNodeContents(document.getElementById("phone"));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    };
+    try {
+      navigator.clipboard.writeText("01021920609").then(done, pick);
+    } catch (e) { pick(); }
+  });
+})();
+</script>
+
+</body>
+</html>
